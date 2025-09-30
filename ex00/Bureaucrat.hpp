@@ -6,7 +6,7 @@
 /*   By: manandre <manandre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 08:28:45 by manandre          #+#    #+#             */
-/*   Updated: 2025/09/30 08:28:46 by manandre         ###   ########.fr       */
+/*   Updated: 2025/09/30 08:46:34 by manandre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ public:
     };
 };
 
-std::ostream &operator<<(std::ostream &o, Bureaucrat *bureaucrat);
+std::ostream &operator<<(std::ostream &o, Bureaucrat &bureaucrat);
 
 #endif

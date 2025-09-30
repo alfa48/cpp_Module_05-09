@@ -1,21 +1,21 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefale                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: manandre <manandre@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/29 20:35:27 by manandre          #+#    #+#              #
-#    Updated: 2025/09/30 08:30:23 by manandre         ###   ########.fr        #
+#    Updated: 2025/09/30 08:39:49 by manandre         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-SRCS = 
-HEADER = 
+SRCS = Bureaucrat.cpp main.cpp
+HEADER = Bureaucrat.hpp
 
 OBJS = $(SRCS:.cpp=.o)
-NAME = animal
+NAME = bureaucrat
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f
