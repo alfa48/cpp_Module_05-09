@@ -29,27 +29,28 @@ private:
     int grade; //(ranges 1-150, 1 highest grade)
 
 public:
-    Bureaucrat();
+    Bureaucrat(void);
+    Bureaucrat(std::string name, int grade);
     Bureaucrat(const Bureaucrat &src);
     Bureaucrat &operator=(const Bureaucrat &src);
     ~Bureaucrat();
 
-    std::string getName() const;
-    int getGrade() const;
+    std::string const &getName(void) const;
+    int const &getGrade(void) const;
 
-    void lowerGrade();
-    void increaseGrade();
+    void lowerGrade(void);
+    void increaseGrade(void);
 
     class GradeTooHighException : public std::exception
     {
-    public:
-        virtual const char *what() const throw();
+        public:
+            virtual const char *what(void) const throw();
     };
 
-    class GradeTooLowException
+    class GradeTooLowException: public std::exception
     {
-    public:
-        virtual const char *what() const throw();
+        public:
+            virtual const char *what(void) const throw();
     };
 };
 
