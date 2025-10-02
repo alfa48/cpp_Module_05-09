@@ -6,7 +6,7 @@
 /*   By: manandre <manandre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 08:28:53 by manandre          #+#    #+#             */
-/*   Updated: 2025/09/30 08:46:55 by manandre         ###   ########.fr       */
+/*   Updated: 2025/09/30 08:49:42 by manandre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int main(void){
     {
         Bureaucrat brt;
         std::cout << brt << std::endl;
+        
     }
 
     return (0);
