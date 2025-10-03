@@ -6,7 +6,7 @@
 /*   By: manandre <manandre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 08:28:45 by manandre          #+#    #+#             */
-/*   Updated: 2025/10/03 07:03:50 by manandre         ###   ########.fr       */
+/*   Updated: 2025/10/03 08:12:48 by manandre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ em execusão sem ter que interromper o programa
  */
 
 #include <iostream>
+
+class Form;
 
 class Bureaucrat
 {
@@ -40,6 +42,8 @@ public:
 
     void lowerGrade(void);
     void increaseGrade(void);
+
+    void signForm(Form &form) const;
 
     class GradeTooHighException : public std::exception
     {

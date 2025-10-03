@@ -6,11 +6,12 @@
 /*   By: manandre <manandre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 08:28:29 by manandre          #+#    #+#             */
-/*   Updated: 2025/10/03 07:03:42 by manandre         ###   ########.fr       */
+/*   Updated: 2025/10/03 08:14:22 by manandre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 //    constructors, destructors and overloads
 Bureaucrat::Bureaucrat() : name("default"), grade(150)
@@ -70,4 +71,14 @@ void Bureaucrat::increaseGrade(void)
 {
     if (this->grade - 1 < 1){throw Bureaucrat::GradeTooHighException();}
     this->grade--;
+}
+
+//sign form
+void Bureaucrat::signForm(Form &form) const{
+    try{
+        form.beSigned(*this);
+        std::cout << this->getName() << " signed " << form.getName() << std::endl; 
+    }catch(std::exception &e){
+        std::cout << this->getName() << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+    }
 }
