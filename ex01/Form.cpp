@@ -6,7 +6,7 @@
 /*   By: manandre <manandre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 15:55:44 by manandre          #+#    #+#             */
-/*   Updated: 2025/10/03 08:19:22 by manandre         ###   ########.fr       */
+/*   Updated: 2025/10/07 22:17:24 by manandre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void Form::beSigned(const Bureaucrat &brt){
 
 std::ostream &operator<<(std::ostream &out, const Form &form){
     out << form.getName() << ", form, "
-        << "grade to sign: " << form.getGradeToSign() << "," 
-        << "grade to execute: " << form.getGradeToExecute() << ","
+        << "grade to sign: " << form.getGradeToSign() << ", " 
+        << "grade to execute: " << form.getGradeToExecute() << ", "
         << "is signed: " << std::boolalpha << form.getIsSigned();
     return out;
 }

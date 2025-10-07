@@ -6,13 +6,12 @@
 /*   By: manandre <manandre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 08:28:29 by manandre          #+#    #+#             */
-/*   Updated: 2025/10/03 07:03:42 by manandre         ###   ########.fr       */
+/*   Updated: 2025/10/07 21:53:05 by manandre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-//    constructors, destructors and overloads
 Bureaucrat::Bureaucrat() : name("default"), grade(150)
 {
     std::cout << "Bureaucrat default construtor called, " << this->getName() << " with grade " << this->getGrade() << std::endl;

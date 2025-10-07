@@ -6,7 +6,7 @@
 /*   By: manandre <manandre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 08:28:45 by manandre          #+#    #+#             */
-/*   Updated: 2025/10/03 07:03:50 by manandre         ###   ########.fr       */
+/*   Updated: 2025/10/07 21:52:54 by manandre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 #ifndef BUREAUCRAT_H
 #define BUREAUCRAT_H
 
-/*
-Excetion é um mecanismo que permite tratar erros no programa
-em execusão sem ter que interromper o programa
- */
 
 #include <iostream>
 

@@ -6,12 +6,13 @@
 /*   By: manandre <manandre@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:29:45 by manandre          #+#    #+#             */
-/*   Updated: 2025/10/07 21:37:56 by manandre         ###   ########.fr       */
+/*   Updated: 2025/10/08 00:37:16 by manandre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "form/hpp/AForm.hpp"
+#include "form/hpp/PresidentialPardonForm.hpp"
 #include <iostream>
 
 int main(void)
@@ -20,48 +21,12 @@ int main(void)
     std::cout << "---------------------------------" << std::endl;
     {
         Bureaucrat alice("Alice", 5);
-        Form formA("FormA", 10, 3);
+        AForm *formA = new PresidentialPardonForm("FormA");
         std::cout << formA << std::endl;
 
-        alice.signForm(formA);
+        alice.signForm(*formA);
         std::cout << formA << std::endl;
-    }
-
-    std::cout << "falha ao assinar (grade low)" << std::endl;
-    std::cout << "---------------------------------" << std::endl;
-    
-    {
-        Bureaucrat bob("Bob", 50);
-        Form formB("FormB", 10, 5);
-        std::cout << formB << std::endl;
-
-        bob.signForm(formB);
-        std::cout << formB << std::endl;
-    }
-
-    std::cout << "tentativa de criar Form com grade invalida" << std::endl;
-    std::cout << "---------------------------------" << std::endl;
-    
-    {
-        try
-        {
-            Form formC("FormC", 0, 5);
-            std::cout << formC << std::endl;
-        }
-        catch (std::exception &e)
-        {
-            std::cout << "exception: " << e.what() << std::endl;
-        }
-
-        try
-        {
-            Form formD("FormD", 10, 151);
-            std::cout << formD << std::endl;
-        }
-        catch (std::exception &e)
-        {
-            std::cout << "exception: " << e.what() << std::endl;
-        }
+        std::cout << (*formA).getIsSigned() << std::endl;
     }
 
    
