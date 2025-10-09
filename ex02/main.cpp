@@ -20,16 +20,18 @@ int main(void)
     std::cout << "assinatura bem-sucedida" << std::endl;
     std::cout << "---------------------------------" << std::endl;
     {
-        Bureaucrat alice("Alice", 5);
+        Bureaucrat alice("Alice", 6);
         AForm *formA = new PresidentialPardonForm("FormA");
-        std::cout << formA << std::endl;
+        std::cout << *formA << std::endl;
+        std::cout << alice << std::endl;
+
+        std::cout << (*formA).getIsSigned() << std::endl;
 
         alice.signForm(*formA);
-        std::cout << formA << std::endl;
+        std::cout << *formA << std::endl;
         std::cout << (*formA).getIsSigned() << std::endl;
+        formA->execute(alice);
     }
-
-   
 
     return 0;
 }

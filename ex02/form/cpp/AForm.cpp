@@ -88,5 +88,5 @@ std::ostream &operator<<(std::ostream &out, const AForm &form)
 void AForm::execute(Bureaucrat const &brt) const{
     if (!this->getIsSigned()) {AForm::FormIsNotSignedException();}
     if (brt.getGrade() > this->getGradeToExecute()) {AForm::GradeTooLowException();}
-    executeAction();
+    this->executeAction(this->target);
 }

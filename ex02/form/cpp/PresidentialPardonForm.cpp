@@ -1,4 +1,5 @@
 #include "../hpp/PresidentialPardonForm.hpp"
+#include "../../Bureaucrat.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("pPerdonForm_default", 25, 5)
 {
@@ -19,7 +20,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm
     return (*this);
 }
 
-void PresidentialPardonForm::executeAction() const
+void PresidentialPardonForm::executeAction(Bureaucrat const &executor) const
 {
-    std::cout << "desenha uma arvore" << std::endl;
+    std::cout << executor.getName() <<" foi perdoado por Zaphod Beeblebrox" << std::endl;
 }
