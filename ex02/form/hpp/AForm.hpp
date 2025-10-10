@@ -55,7 +55,7 @@ public:
         const char *what() const throw();
     };
 
-    virtual void executeAction(Bureaucrat const &executor) const = 0;
+    virtual void executeAction() const = 0;
     virtual void execute(Bureaucrat const &executor) const;
 };
 

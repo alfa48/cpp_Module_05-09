@@ -5,14 +5,22 @@
 #include "../hpp/AForm.hpp"
 class Bureaucrat;
 
-class PresidentialPardonForm : public AForm{
+class PresidentialPardonForm : public AForm
+{
 
-    public:
-        PresidentialPardonForm();
-        PresidentialPardonForm(std::string name);
-        PresidentialPardonForm(const PresidentialPardonForm &pPerdonForm);
-        PresidentialPardonForm &operator=(const PresidentialPardonForm &pPerdonForm);
-        virtual void executeAction(Bureaucrat const &executor) const;
+private:
+    std::string target;
+    PresidentialPardonForm();
+
+public:
+    PresidentialPardonForm(std::string target);
+    PresidentialPardonForm(const PresidentialPardonForm &pPerdonForm);
+    PresidentialPardonForm &operator=(const PresidentialPardonForm &pPerdonForm);
+    ~PresidentialPardonForm();
+
+    std::string const &getTarget() const;
+
+    virtual void executeAction() const;
 };
 
 #endif
