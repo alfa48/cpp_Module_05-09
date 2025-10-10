@@ -45,9 +45,8 @@ Form::Form(const Form &form) :  name(form.getName()),
 
 Form &Form::operator=(const Form &form)
 {
-    if (this != &form){
-        this->isSigned = form.isSigned;
-    }
+    std::cout << "Form Assignation operator called" << std::endl;
+    if (this != &form){this->isSigned = form.isSigned;}
     return (*this);
 }
 

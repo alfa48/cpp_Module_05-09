@@ -33,6 +33,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &brt) : name(brt.name)
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &brt)
 {
+    std::cout << "Bureaucrat Assignation operator called" << std::endl;
     if (this == &brt){return (*this);}
     this->grade = brt.getGrade();
     return (*this);
