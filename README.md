@@ -11,10 +11,12 @@
 ### 🧭 Cenário
 
 #### Tens um repositório no GitHub, por exemplo:
+
 https://github.com/alfa48/projeto.git
 
-#### Queres enviar apenas uma branch específica, por exemplo dev, para o repositório, por exemplo:
-git@outro.repositorio:ola/_project.git
+#### Para Adiciona o remoto do outro repositório, use:
+
+git remote add origin git@outro.repositorio:ola/_project.git
 
 ## 🚀 Passo a passo completo
 ### 1. Clona o repositório original (do GitHub) e garante que estás na branch certa
