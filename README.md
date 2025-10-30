@@ -19,7 +19,6 @@ git@outro.repositorio:ola/_project.git
 ## 🚀 Passo a passo completo
 ### 1. Clona o repositório original (do GitHub) e garante que estás na branch certa
 ### 2. Adiciona o remoto do outro git
-### 3. git remote add origin git@vogsphere.42luanda.ao:vogsphere/intra_project.git
 Ex: git remote add origin git@outro.repositorio:ola/_project.git
-### 4. Faz o push da branch específica para o outro git:
+### 3. Faz o push da branch específica para o outro git:
 ex: git push origin dev:master
