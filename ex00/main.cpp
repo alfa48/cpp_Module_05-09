@@ -1,15 +1,28 @@
+
 #include <iostream>
 #include "ScalarConverter.hpp"
 
-int main()
+
+int main(int ac, char *av[])
 {
 
+    if (ac != 2)
     {
-        ScalarConverter::convert("a");
-        std::cout << "-----------------" << std::endl;
-        ScalarConverter::convert("1");
-        std::cout << "-----------------" << std::endl;
+        std::cerr << "Usage: ./convert <literal_value>" << std::endl;
+        return 1;
+    }
+
+    std::string input = av[1];
+
+    try
+    {
+        ScalarConverter::convert(input);
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << "Error: " << e.what() << std::endl;
     }
 
     return 0;
 }
+
