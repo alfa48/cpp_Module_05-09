@@ -45,7 +45,7 @@ static bool isFloat(const std::string &str)
         return false;
     }
 
-    // pseudo-literais
+    //pseudo-literais
     if (str == "-inff" || str == "+inff" || str == "nanf")
         return true;
 
@@ -83,7 +83,7 @@ static bool isDouble(const std::string &str)
         return false;
     }
 
-    // pseudo-literais de double
+    //pseudo-literais de double
     if (str == "nan" || str == "+inf" || str == "-inf")
         return true;
 
@@ -110,7 +110,7 @@ static bool isDouble(const std::string &str)
     return hasDigit;
 }
 
-// Handlers
+//Handlers
 void ScalarConverter::handleChar(const std::string &literal)
 {
     char value = literal[0];
@@ -147,7 +147,7 @@ void ScalarConverter::handleFloat(const std::string &literal)
 {
     float value;
 
-    // Pseudo-literais
+    //Pseudo-literais
     if (literal == "nanf")
         value = std::numeric_limits<float>::quiet_NaN();
     else if (literal == "+inff")
@@ -157,7 +157,7 @@ void ScalarConverter::handleFloat(const std::string &literal)
     else
         value = std::strtof(literal.c_str(), NULL);
 
-    // char
+    //char
     if (std::isnan(value) || std::isinf(value) || value < 0 || value > 127)
         std::cout << "char: impossível" << std::endl;
     else if (!std::isprint(static_cast<char>(value)))
@@ -165,7 +165,7 @@ void ScalarConverter::handleFloat(const std::string &literal)
     else
         std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
 
-    // int
+    //int
     if (std::isnan(value) || std::isinf(value) ||
         value < static_cast<float>(INT_MIN) ||
         value > static_cast<float>(INT_MAX))
@@ -173,7 +173,7 @@ void ScalarConverter::handleFloat(const std::string &literal)
     else
         std::cout << "int: " << static_cast<int>(value) << std::endl;
 
-    // float
+    //float
     if (std::isnan(value))
         std::cout << "float: nanf" << std::endl;
     else if (std::isinf(value))
@@ -181,7 +181,7 @@ void ScalarConverter::handleFloat(const std::string &literal)
     else
         std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f" << std::endl;
 
-    // double
+    //double
     if (std::isnan(value))
         std::cout << "double: nan" << std::endl;
     else if (std::isinf(value))
@@ -194,7 +194,7 @@ void ScalarConverter::handleDouble(const std::string &literal)
 {
     double value;
 
-    // Pseudo-literais
+    //Pseudo-literais
     if (literal == "nan")
         value = std::numeric_limits<double>::quiet_NaN();
     else if (literal == "+inf")
@@ -204,7 +204,7 @@ void ScalarConverter::handleDouble(const std::string &literal)
     else
         value = std::strtod(literal.c_str(), NULL);
 
-    // char
+    //char
     if (std::isnan(value) || std::isinf(value) || value < 0 || value > 127)
         std::cout << "char: impossível" << std::endl;
     else if (!std::isprint(static_cast<char>(value)))
@@ -212,7 +212,7 @@ void ScalarConverter::handleDouble(const std::string &literal)
     else
         std::cout << "char: '" << static_cast<char>(value) << "'" << std::endl;
 
-    // int
+    //int
     if (std::isnan(value) || std::isinf(value) ||
         value < static_cast<double>(INT_MIN) ||
         value > static_cast<double>(INT_MAX))
@@ -220,7 +220,7 @@ void ScalarConverter::handleDouble(const std::string &literal)
     else
         std::cout << "int: " << static_cast<int>(value) << std::endl;
 
-    // float
+    //float
     if (std::isnan(value))
         std::cout << "float: nanf" << std::endl;
     else if (std::isinf(value))
@@ -228,7 +228,7 @@ void ScalarConverter::handleDouble(const std::string &literal)
     else
         std::cout << "float: " << static_cast<float>(value) << "f" << std::endl;
 
-    // double
+    //double
     if (std::isnan(value))
         std::cout << "double: nan" << std::endl;
     else if (std::isinf(value))

@@ -22,7 +22,7 @@ private:
     ~ScalarConverter(void);
 
     static ScalarType detectType(const std::string &literal);
-    // handles
+    //handles
     static void handleChar(const std::string &literal);
     static void handleInt(const std::string &literal);
     static void handleFloat(const std::string &literal);
