@@ -7,7 +7,7 @@
 class Serializer
 {
 private:
-    Serializer();
+    Serializer(void);
     Serializer(const Serializer &src);
     Serializer &operator=(const Serializer &src);
 
