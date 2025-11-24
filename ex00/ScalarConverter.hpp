@@ -33,16 +33,6 @@ private:
     public:
         virtual const char *what(void) const throw();
     };
-    class OverflowException : public std::exception
-    {
-    public:
-        virtual const char *what(void) const throw();
-    };
-    class ImpossibleconversionException : std::exception
-    {
-    public:
-        virtual const char *what(void) const throw();
-    };
 
 public:
     static void (*handlers[])(const std::string &);

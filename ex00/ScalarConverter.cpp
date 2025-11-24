@@ -207,16 +207,6 @@ const char *ScalarConverter::InvalidTypeException::what(void) const throw()
     return "Invalid literal type";
 }
 
-const char *ScalarConverter::ImpossibleconversionException::what(void) const throw()
-{
-    return "Imposible conversion literal type";
-}
-
-const char *ScalarConverter::OverflowException::what(void) const throw()
-{
-    return "Overflow during conversion";
-}
-
 ScalarType ScalarConverter::detectType(const std::string &literal)
 {
     for (size_t i = 0; i < sizeof(types) / sizeof(ScalarType); ++i)
