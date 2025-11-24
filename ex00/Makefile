@@ -2,7 +2,7 @@ SRCS = ScalarConverter.cpp main.cpp
 HEADER = ScalarConverter.hpp
 
 OBJS = $(SRCS:.cpp=.o)
-NAME = cast_
+NAME = convert_
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f

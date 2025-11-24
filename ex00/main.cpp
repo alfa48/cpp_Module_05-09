@@ -8,7 +8,7 @@ int main(int ac, char *av[])
 
     if (ac != 2)
     {
-        std::cerr << "Usage: ./convert <literal_value>" << std::endl;
+        std::cerr << "Usa: ./convert_ <valor literal>" << std::endl;
         return 1;
     }
 
