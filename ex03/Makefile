@@ -1,8 +1,8 @@
-SRCS = main.cpp
-HEADER = Iter.hpp
+SRCS = default_.cpp
+HEADER = default_.hpp
 
 OBJS = $(SRCS:.cpp=.o)
-NAME = iter_
+NAME = serialize
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f
