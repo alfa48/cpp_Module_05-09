@@ -1,5 +1,5 @@
-SRCS =  default_.cpp
-HEADER =  default_.hpp
+SRCS =  main.cpp
+HEADER =  ./hpp/Array.hpp ./cpp/Array.tpp
 
 OBJS = $(SRCS:.cpp=.o)
 NAME = defoult_

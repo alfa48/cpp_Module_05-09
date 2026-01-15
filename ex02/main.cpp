@@ -1,6 +1,4 @@
-#include <iostream>
-#include "Array.hpp"
-
+#include "./hpp/Array.hpp"
 
 void	test_empty_array()
 {
@@ -105,13 +103,20 @@ void	test_copy_assignation()
 
 int main(int, char**)
 {
-	test_empty_array();
-	test_create_array(3);
-	test_array_int();
-	test_array_char();
-	test_invalid_index();
-	test_copy_constructor();
-	test_copy_assignation();
+
+	{
+		
+		test_empty_array();
+		test_create_array(3);
+		test_array_int();
+		test_array_char();
+		test_invalid_index();
+		test_copy_constructor();
+		test_copy_assignation();
+		
+	}
+	int * a = new int();
+	std::cout << *a+4 << std::endl;
 
 	return 0;
 }
