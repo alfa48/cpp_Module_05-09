@@ -2,7 +2,7 @@ SRCS =  main.cpp
 HEADER =  ./hpp/Array.hpp ./cpp/Array.tpp
 
 OBJS = $(SRCS:.cpp=.o)
-NAME = defoult_
+NAME = template
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f

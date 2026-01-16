@@ -115,8 +115,7 @@ int main(int, char**)
 		test_copy_assignation();
 		
 	}
-	int * a = new int();
-	std::cout << *a+4 << std::endl;
+
 
 	return 0;
 }
