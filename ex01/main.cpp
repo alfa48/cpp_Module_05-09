@@ -1,4 +1,4 @@
-#include "Iter.hpp"
+#include "iter.hpp"
 #include <iostream>
 
 
@@ -22,7 +22,7 @@ int main(void)
         for (size_t i = 0; i < size; i++){std::cout << arr[i] << " ";}
         std::cout << std::endl;
 
-        std::string strArr[] = {"Hello", "World", "Este", "e", "Iter"};
+        std::string strArr[] = {"Hello", "World", "Este", "e", "iter"};
         const size_t size1 = sizeof(strArr) / sizeof(strArr[0]);
         ::iter(strArr, size1, to_upper);
         for (size_t i = 0; i < size1; i++){std::cout << strArr[i] << " ";}

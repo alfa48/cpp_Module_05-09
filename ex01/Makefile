@@ -1,5 +1,5 @@
 SRCS = main.cpp
-HEADER = Iter.hpp
+HEADER = iter.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 NAME = iter_

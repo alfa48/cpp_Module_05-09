@@ -1,8 +1,8 @@
 SRCS = main.cpp
-HEADER = Tamplates.hpp
+HEADER = whatever.hpp
 
 OBJS = $(SRCS:.cpp=.o)
-NAME = tamplate_
+NAME = whatever_
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f
