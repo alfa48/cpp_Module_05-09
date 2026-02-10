@@ -1,8 +1,8 @@
 SRCS =  main.cpp
-HEADER =  ./hpp/Array.hpp ./cpp/Array.tpp
+HEADER =  Array.hpp Array.tpp
 
 OBJS = $(SRCS:.cpp=.o)
-NAME = template
+NAME = array_
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f

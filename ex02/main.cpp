@@ -1,4 +1,27 @@
-#include "./hpp/Array.hpp"
+#include "Array.hpp"
+
+class Zombie{
+    private:
+		std::string name_;
+		int age_;
+	
+    public:
+		Zombie(): name_("desconhecido"), age_(0){}
+		Zombie(const std::string &name, int age): name_(name), age_(age){}
+        void announce( void ){ std::cout << name_ << ": BraiiiiiiinnnzzzZ..." << age_ << "\n";}
+		Zombie(const Zombie& other){*this = other;}
+
+    Zombie& operator=(const Zombie& other)
+    {
+        if (this != &other)
+        {
+            name_ = other.name_;
+            age_ = other.age_;
+        }
+        return *this;
+    }
+        ~Zombie(){std::cout << name_ << '\n';}
+};
 
 void	test_empty_array()
 {
@@ -8,15 +31,6 @@ void	test_empty_array()
 	std::cout << std::endl;
 }
 
-void	test_create_array(unsigned int i)
-{
-	std::cout << "--- Create array int ---" << std::endl;
-	Array<int> array(i);
-	std::cout << "array.size = " << array.size() << std::endl;
-	for (unsigned int i = 0; i < array.size(); i++)
-		std::cout << "array[" << i << "] = " << array[i] << std::endl;
-	std::cout << std::endl;
-}
 
 void	test_array_int()
 {
@@ -82,37 +96,47 @@ void	test_copy_constructor()
 	std::cout << std::endl;
 }
 
-void	test_copy_assignation()
+void test_array_string()
 {
-	std::cout << "--- Copy assignation ---" << std::endl;
-	Array<int> array(3);
-	std::cout << "array.size = " << array.size() << std::endl;
-	array[0] = 1;
-	array[1] = 2;
-	array[2] = 3;
-	Array<int> array2 = array;
-	std::cout << "array2.size = " << array2.size() << std::endl;
-	for (unsigned int i = 0; i < array2.size(); i++)
-		std::cout << "array2[" << i << "] = " << array2[i] << std::endl;
-	std::cout << "Change array[0] = 42" << std::endl;
-	array[0] = 42;
-	std::cout << "array[0] = " << array[0] << std::endl;
-	std::cout << "array2[0] = " << array2[0] << std::endl;
-	std::cout << std::endl;
+    std::cout << "--- Array string ---" << std::endl;
+
+    Array<std::string> array(3);
+    array[0] = "Hello";
+    array[1] = "World";
+    array[2] = "42";
+
+    for (unsigned int i = 0; i < array.size(); i++)
+        std::cout << "array[" << i << "] = " << array[i] << std::endl;
+
+    std::cout << std::endl;
 }
+
+void test_array_complex_type()
+{
+    std::cout << "--- Array complex type (Person) ---" << std::endl;
+
+    Array<Zombie> horda(2);
+    horda[0] = Zombie("Zugo", 30);
+    horda[1] = Zombie("Boob", 25);
+
+    for (unsigned int i = 0; i < horda.size(); i++){horda[i].announce();}
+
+    std::cout << std::endl;
+}
+
 
 int main(int, char**)
 {
 
 	{
 		
-		test_empty_array();
-		test_create_array(3);
+		//test_empty_array();
 		test_array_int();
-		test_array_char();
-		test_invalid_index();
-		test_copy_constructor();
-		test_copy_assignation();
+		//test_array_char();
+		//test_invalid_index();
+		//test_copy_constructor();
+		test_array_string();
+		test_array_complex_type();
 		
 	}
 

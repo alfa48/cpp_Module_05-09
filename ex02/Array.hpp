@@ -27,5 +27,5 @@ class Array
         };
 };
 
-#include "../cpp/Array.tpp"
+#include "Array.tpp"
 #endif

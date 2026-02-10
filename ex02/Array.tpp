@@ -1,4 +1,3 @@
-
 template <typename T>
 Array<T>::Array(){
     array = NULL;
@@ -33,25 +32,14 @@ Array<T> &Array<T>::operator=(const Array &src){
 }
 
 template <typename T>
-Array<T>::~Array(){
-    if (array) {delete[] array;}
-}
+Array<T>::~Array(){if (array) {delete[] array;}}
 
-// versão apenas para leitura e escrita
+// 
 template <typename T>
 T &Array<T>::operator[](unsigned int index){
     if (index >= this->u_size || this->array == NULL){throw OutOfRangeException();}
     return this->array[index];
 }
 
-// versão apenas para leitura
 template <typename T>
-const T &Array<T>::operator[](unsigned int index) const {
-    if (index >= u_size || this->array == NULL) throw OutOfRangeException();
-    return this->array[index];
-}
-
-template <typename T>
-unsigned int Array<T>::size() const{
-    return this->u_size;
-}
+unsigned int Array<T>::size() const{return this->u_size;}
