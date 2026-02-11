@@ -1,8 +1,8 @@
-SRCS = main.cpp
-HEADER = Iter.hpp
+SRCS = Span.cpp main.cpp
+HEADER = Span.hpp
 
 OBJS = $(SRCS:.cpp=.o)
-NAME = iter_
+NAME = span_
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f
