@@ -1,5 +1,5 @@
 SRCS = main.cpp
-HEADER = Easyfind.hpp
+HEADER = easyfind.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 NAME = easyfind_

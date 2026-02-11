@@ -8,9 +8,7 @@
 
 class NotFoundException : public std::exception{
     public:
-            virtual const char *what() const throw(){
-                return ("not found");
-            }
+            virtual const char *what() const throw(){return ("not found");}
 };
 
 template <typename T>

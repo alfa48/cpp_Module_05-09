@@ -1,7 +1,7 @@
 #include <vector>
 #include <list>
 #include <iostream>
-#include "Easyfind.hpp"
+#include "easyfind.hpp"
 
 int main() {
     std::vector<int> v;
@@ -15,10 +15,10 @@ int main() {
     l.push_back(30);
 
     try {
-        std::cout << easyfind(v, 12) << std::endl;   //vector
-        std::cout << easyfind(l, 29) << std::endl;  //lista
-    } catch (std::exception& e) {
-        std::cout << e.what() << std::endl;
-    }
+    
+        std::cout << easyfind(v, 001) << std::endl;   //vector
+        std::cout << easyfind(l, 209) << std::endl;  //lista
+    
+    } catch (std::exception& e) {std::cout << "exception: " << e.what() << std::endl;}
 }
 
