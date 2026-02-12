@@ -113,7 +113,7 @@ void test_array_string()
 
 void test_array_complex_type()
 {
-    std::cout << "--- Array complex type (Person) ---" << std::endl;
+    std::cout << "--- Array complexa tipo (Zombie) ---" << std::endl;
 
     Array<Zombie> horda(2);
     horda[0] = Zombie("Zugo", 30);
