@@ -6,6 +6,7 @@ Array<T>::Array(){
 
 template <typename T>
 Array<T>::Array(unsigned int n){
+    if (n == 0 || n > (std::numeric_limits<unsigned int>::max()/2)){throw InvalidSizeException();}
     array = new T[n]();
     u_size = n;
 }
@@ -43,3 +44,9 @@ T &Array<T>::operator[](unsigned int index){
 
 template <typename T>
 unsigned int Array<T>::size() const{return this->u_size;}
+
+template <typename T>
+const char* Array<T>::OutOfRangeException::what() const throw() {return "Out of range";}
+
+template <typename T>
+const char* Array<T>::InvalidSizeException::what() const throw() {return "invalid size";}

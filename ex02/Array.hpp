@@ -2,6 +2,7 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include <limits>
 
 template <typename T>
 class Array
@@ -23,7 +24,13 @@ class Array
         class OutOfRangeException : public std::exception
         {
             public:
-                virtual const char *what() const throw(){return "Out of range";}
+                virtual const char *what() const throw();
+        };
+
+        class InvalidSizeException : public std::exception
+        {
+            public:
+                virtual const char *what() const throw();
         };
 };
 
