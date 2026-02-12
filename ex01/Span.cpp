@@ -9,7 +9,7 @@ Span::Span(unsigned int n): maxSize(n), currentIndex(0) {
 }
 
 void Span::addNumber(int num){
-    if (currentIndex >= maxSize){throw OutOfRangeException();}
+    if (currentIndex >= maxSize){throw IsAlreadyFullException();}
     array[currentIndex] = num;
     currentIndex++;
 }
@@ -18,6 +18,6 @@ Span::~Span(){
     delete[] array;
 }
 
-const char* Span::OutOfRangeException::what() const throw() {
-    return "Out of range";
+const char* Span::IsAlreadyFullException::what() const throw() {
+    return "Span is already full";
 }

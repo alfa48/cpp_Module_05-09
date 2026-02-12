@@ -9,7 +9,7 @@ class Span{
         unsigned int currentIndex;
         int *array;
 
-        class OutOfRangeException : public std::exception
+        class IsAlreadyFullException : public std::exception
         {
             public:
                 virtual const char *what() const throw();

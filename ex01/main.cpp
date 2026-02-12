@@ -5,7 +5,7 @@
 int main(void)
 {
 
-    Span sp = Span(5);
+    Span sp = Span(2);
     try{
 
         sp.addNumber(6);
