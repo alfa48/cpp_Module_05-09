@@ -1,8 +1,8 @@
 SRCS =  main.cpp
-HEADER =  ./hpp/Array.hpp ./cpp/Array.tpp
+HEADER =  MutantStack.hpp
 
 OBJS = $(SRCS:.cpp=.o)
-NAME = template
+NAME = mutant_stack_
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f
