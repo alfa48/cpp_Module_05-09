@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/novaselect/Projects/42Projects/cpp_Module_05-09/ex03",
-      "program": "/home/novaselect/Projects/42Projects/cpp_Module_05-09/ex03/build/Debug/outDebug",
+      "cwd": "/home/novaselect/Projects/42Projects/cpp_Module_05-09/ex02",
+      "program": "/home/novaselect/Projects/42Projects/cpp_Module_05-09/ex02/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
