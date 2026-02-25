@@ -1,8 +1,17 @@
-#include <fstream>
 #include <iostream>
+#include "BitcoinExchange.hpp"
 
-int main() {
-    std::ifstream arquivo("test.txt");
-    arquivo.is_open() ? std::cout << "Arquivo aberto com sucesso!" << std::endl : std::cout << "Erro ao abrir o arquivo!" << std::endl;
+int main(int ac, char *av[]) {
+    (void)av;
+    if (ac != 2) {
+        std::cerr << "Error: could not open file." << std::endl;
+        return 1;
+    }
+    try {
+        BitcoinExchange exchange;
+        
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
+        return 1;
+    }
 }
-
