@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: manandre <948manuel@gmail.com>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/05 20:17:38 by manandre          #+#    #+#             */
+/*   Updated: 2026/03/05 22:54:56 by manandre         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "BitcoinExchange.hpp"
 #include <fstream>
 #include <sstream>
@@ -5,57 +17,72 @@
 
 
 BitcoinExchange::BitcoinExchange() {loadData("data.csv");}
-BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) : exchangeRates(other.exchangeRates) {}
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& other) : exchangeRatesByDate(other.exchangeRatesByDate) {}
 BitcoinExchange::~BitcoinExchange() {}
 BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other) {
-    if (this != &other) {exchangeRates = other.exchangeRates;}
+    if (this != &other) {exchangeRatesByDate = other.exchangeRatesByDate;}
     return *this;
 }
 
-double BitcoinExchange::getExchangeRate(const std::string& date) const{
-    std::map<std::string, double>::const_iterator it = exchangeRates.find(date);
-    if (it != exchangeRates.end()) {return it->second;}
-    throw ExchangeRateNotFoundForDateException();
+double BitcoinExchange::getExchangeRateByDate(const std::string& date) const{
+    std::map<std::string, double>::const_iterator it = exchangeRatesByDate.find(date);
+    if (it != exchangeRatesByDate.end()) {return it->second;}
+    return (-1);
+    //throw ExchangeRateNotFoundForDateException();
 }
 
-//Para cargar os dados do arquivo CSV, o método loadData lee o arquivo linha por linha
+//Para cargar os dados do arquivo(db) CSV, o método loadData lee o arquivo linha por linha
 void BitcoinExchange::loadData(const std::string& filename) {
+    double rate;
+    size_t commaPos;
+    
     std::ifstream file(filename.c_str());
     if (!file.is_open()) {throw FileException();}
     std::string line;
     while (std::getline(file, line)) {
                  if (line.empty() || line.substr(0,4) == "date") continue;
-        size_t commaPos = line.find(',');
+        commaPos = line.find(',');
         if (commaPos == std::string::npos){throw BadInputException();}
         std::string date = line.substr(0, commaPos);
         std::string rateStr = line.substr(commaPos + 1);
-        double rate;
+        BitcoinExchange::rmSpaces(rateStr);
         try{rate = strToDouble(rateStr);}
         catch (const std::exception &e){throw BadInputException();}
         if (rate < 0){throw NotPossitiveNumberException();}
         if (rate > 2147483647){throw LargeNumberException();}
-        exchangeRates[date] = rate;
+        BitcoinExchange::rmSpaces(date);
+        exchangeRatesByDate[date] = rate;
+        //std::cout << line << std::endl;
     }
     file.close();
 }
 
+//Para cargar os dados do arquivo(input) CSV
 void BitcoinExchange::hendleExchangeRate(const std::string &file){
+    double value;
+    double exchange;
+    size_t pipePos;
+    std::string line;
+    std::string date;
+
     std::ifstream inputFile(file.c_str());
     if (!inputFile.is_open()) {throw FileException();}
-    std::string line;
     while (std::getline(inputFile, line)) {
-        if (line.empty()) continue;
-        size_t pipePos = line.find('|');
-        if (pipePos == std::string::npos){throw BadInputException();}
-        std::string date = line.substr(0, pipePos);
-        std::string valueStr = line.substr(pipePos + 1);
-        double value;
-        try{value = strToDouble(valueStr);}
+        if (line.empty() || line.substr(0,4) == "date") {continue;}
+        pipePos = line.find('|');
+        if (pipePos == std::string::npos){IO::err("Error: bad input => "+line); continue;}//throw BadInputException();}
+        date = line.substr(0, pipePos);
+        BitcoinExchange::rmSpaces(date);
+        exchange = getExchangeRateByDate(date);
+        if (exchange < 0) {IO::err("Error: Exchange rate not found for the given date."); continue;}  
+        
+        try{value = BitcoinExchange::strToDouble(line.substr(pipePos + 1));}
         catch (const std::exception &e){throw BadInputException();}
-        if (value < 0){std::cout << "Error: not a positive number." << std::endl; continue;}
-        if (value > 2147483647){std::cerr << "Error: too large a number." << std::endl; continue;}
-        double exchangeRate = getExchangeRate(date);
-        std::cout << date << " => " << value << " = " << value * exchangeRate << std::endl;
+        if (value < 0){IO::err("Error: not a positive number.");; continue;}
+        if (value > 1000){IO::err("Error: too large a number."); continue;}
+        std::stringstream ss;
+        ss << date << " => " << value << " = " << value * exchange;
+        IO::out(ss.str());
     }
     inputFile.close();
 }
@@ -85,9 +112,15 @@ const char *BitcoinExchange::LargeNumberException::what() const throw(){
 double BitcoinExchange::strToDouble(const std::string& str) {
     std::stringstream ss(str);
     double value;
+    
     ss >> value;
     if (ss.fail() || !ss.eof()) {
         throw BadInputException();
     }
     return value;
+}
+
+void BitcoinExchange::rmSpaces(std::string& s)
+{
+    s.erase(std::remove(s.begin(), s.end(), ' '), s.end());
 }
