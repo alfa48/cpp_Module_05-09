@@ -6,7 +6,7 @@
 /*   By: manandre <948manuel@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 20:17:42 by manandre          #+#    #+#             */
-/*   Updated: 2026/03/05 22:26:12 by manandre         ###   ########.fr       */
+/*   Updated: 2026/03/06 08:30:06 by manandre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,13 @@ class BitcoinExchange {
 
         static double strToDouble(const std::string& s);
 
+        static bool validarDate(std::string& data);
+        
         static void rmSpaces(std::string& s);
+        
+        static bool isLeapYear(int year);
+
+        bool checkValue(double value);
 };
 
 #endif
