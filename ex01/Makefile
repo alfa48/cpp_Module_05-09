@@ -1,8 +1,8 @@
-SRCS = Span.cpp main.cpp
-HEADER = Span.hpp
+SRCS = RPN.cpp main.cpp
+HEADER = RPN.hpp
 
 OBJS = $(SRCS:.cpp=.o)
-NAME = span_
+NAME = RPN
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f
@@ -15,7 +15,7 @@ $(NAME): $(OBJS)
 $(OBJS): $(HEADER)
 
 clean:
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)

@@ -15,7 +15,7 @@ $(NAME): $(OBJS)
 $(OBJS): $(HEADER)
 
 clean:
-	$(RM) $(OBJS) $(DEPS)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)

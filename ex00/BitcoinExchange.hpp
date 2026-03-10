@@ -6,7 +6,7 @@
 /*   By: manandre <948manuel@gmail.com>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/05 20:17:42 by manandre          #+#    #+#             */
-/*   Updated: 2026/03/06 08:30:06 by manandre         ###   ########.fr       */
+/*   Updated: 2026/03/10 19:05:38 by manandre         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 #define BITCOINGEXCHANGE_HPP
 
 #include <map>
-#include <string>
-
-#include <iostream>
 #include <algorithm>
 #include <string>
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <cfloat>
 
 struct IO {
     static void out(const std::string& msg) {std::cout << msg << std::endl;}
@@ -52,11 +53,6 @@ class BitcoinExchange {
         };
 
         class BadInputException : public std::exception {
-            public:
-                const char *what() const throw();
-        };
-
-        class ExchangeRateNotFoundForDateException : public std::exception {
             public:
                 const char *what() const throw();
         };
