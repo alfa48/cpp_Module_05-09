@@ -1,8 +1,8 @@
 SRCS =  main.cpp
-HEADER =  MutantStack.hpp
+HEADER =  PmergeMe.hpp
 
 OBJS = $(SRCS:.cpp=.o)
-NAME = mutant_stack_
+NAME = PmergeMe
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 RM = rm -f
