@@ -1,4 +1,4 @@
-SRCS =  main.cpp
+SRCS =  main.cpp PmergeMe.cpp
 HEADER =  PmergeMe.hpp
 
 OBJS = $(SRCS:.cpp=.o)

@@ -1,79 +1,27 @@
-#include "MutantStack.hpp"
-#include <iostream>
-#include <list>
+#include "PmergeMe.hpp"
 
-int main()
+int main(int ac, char **av)
 {
+    if (ac < 2)
     {
-        MutantStack<int> mstack;
-        mstack.push(5);
-        mstack.push(17);
-        std::cout << mstack.top() << std::endl;
-        mstack.pop();
-        std::cout << mstack.size() << std::endl;
-        mstack.push(3);
-        mstack.push(5);
-        mstack.push(737);
-        //[...]
-        mstack.push(0);
-        MutantStack<int>::iterator it = mstack.begin();
-        MutantStack<int>::iterator ite = mstack.end();
-        ++it;
-        --it;
-        while (it != ite)
-        {
-        std::cout << *it << std::endl;
-        ++it;
-        }
-        std::stack<int> s(mstack);
+        std::cerr << "Error.." << std::endl;
+        return 1;
     }
-    std::cout << "---Mesmo com lista----" << std::endl;
+    std::string input;
+
+    for (int i = 1; i < ac; i++)
     {
-
-
-        std::list<int> lista;
-        lista.push_back(5);
-        lista.push_back(17);
-        std::cout << lista.back() << std::endl;
-        lista.pop_back();
-        std::cout << lista.size() << std::endl;
-        lista.push_back(3);
-        lista.push_back(5);
-        lista.push_back(737);
-        //[...]
-        lista.push_back(0);
-        std::list<int>::iterator it = lista.begin();
-        std::list<int>::iterator ite = lista.end();
-        ++it;
-        --it;
-        while (it != ite)
-        {
-            std::cout << *it << std::endl;
-            ++it;
-        }
-
+        input += av[i];
+        if (i != ac - 1)
+            input += " ";
     }
-
-    std::cout << "---Mesmo com mutantStack string----" << std::endl;
+    try
     {
-        MutantStack<std::string> mstack;
-        mstack.push("Hello");
-        mstack.push("World");
-        std::cout << mstack.top() << std::endl;
-        mstack.pop();
-        std::cout << mstack.size() << std::endl;
-        mstack.push("C++");
-        MutantStack<std::string>::iterator it = mstack.begin();
-        MutantStack<std::string>::iterator ite = mstack.end();
-        while (it != ite)
-        {
-            std::cout << *it << std::endl;
-            ++it;
-        }
-
+        PmergeMe sorter;
+        sorter.run(input);
     }
-
-
-
-    return 0;
+    catch (std::exception &e)
+    {
+        std::cout << "Error" << std::endl;
+    }
 }

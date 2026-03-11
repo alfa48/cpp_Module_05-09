@@ -2,27 +2,36 @@
 #define PMERGEME_HPP
 
 #include<ctime>
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <set>
+#include <sstream>
+#include <ctime>
 
-template <typename Container>
+
 class PmergeMe
 {
     private:
-        Container container;
-        time_t start;
-        time_t end;
-        
-    public:
-        typedef typename Container::value_type ValueType;
-        typedef typename Container::iterador Iterator;
-        typename Container::iterator begin();
-        typename Container::iterator end();
-        void sort_time();
-        void sort();
+        std::vector<int> vec;
+        std::deque<int> deq;
 
+        void sortVector();
+        void sortDeque();
+
+        void printBefore() const;
+        void printAfter() const;
+        
+        public:
         PmergeMe();
-        PmergeMe(const std::string &av);
+        void run(const std::string &str);
+        void parseInputVec(const std::string &str);
+        void parseInputDeq(const std::string &str);
+        PmergeMe(const PmergeMe &other);
+        PmergeMe &operator=(const PmergeMe &other);
         ~PmergeMe();
+
+        void process();
 };
-#include "PmergeMe.tpp"
 
 #endif
